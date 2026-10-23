@@ -1,0 +1,794 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FacetimeFriend | Live Verification</title>
+
+<style>
+:root {
+  --bg: #0b1020;
+  --panel: #151d31;
+  --panel2: #1d2940;
+  --border: #303c54;
+  --text: #f3f6ff;
+  --muted: #a5b3cd;
+  --blue: #7aa9ff;
+  --green: #53dbab;
+  --red: #ff777e;
+  --yellow: #ffcf75;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Inter, Arial, sans-serif;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 32px;
+  border-bottom: 1px solid var(--border);
+}
+
+h1, h2, h3, p { margin-top: 0; }
+
+h1 { font-size: 25px; margin-bottom: 5px; }
+h2 { font-size: 18px; }
+h3 { font-size: 15px; }
+
+.subtitle, .muted {
+  color: var(--muted);
+}
+
+.subtitle { font-size: 13px; }
+
+.container {
+  max-width: 1700px;
+  width: 95%;
+  margin: auto;
+  padding: 28px;
+}
+
+body {
+  font-size: 16px;
+}
+
+.value {
+  font-size: 18px;
+}
+
+.verdict {
+  font-size: 26px;
+}
+
+.status-bar {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.pill {
+  padding: 9px 13px;
+  border-radius: 30px;
+  background: var(--panel2);
+  border: 1px solid var(--border);
+  font-size: 13px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 22px;
+  margin-bottom: 20px;
+  overflow-wrap: anywhere;
+}
+
+.card-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.card-title h2 { margin: 0; }
+
+.field {
+  margin-bottom: 15px;
+}
+
+.label {
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+.value {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.url { color: var(--yellow); }
+
+.source {
+  padding: 13px;
+  background: var(--panel2);
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.source a {
+  color: var(--blue);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.source a:hover { text-decoration: underline; }
+
+.source p {
+  font-size: 12px;
+  color: var(--muted);
+  margin: 7px 0 0;
+  line-height: 1.5;
+}
+
+.query {
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+
+.flag {
+  padding: 12px;
+  margin-bottom: 10px;
+  background: rgba(255,119,126,.08);
+  border: 1px solid rgba(255,119,126,.28);
+  border-radius: 10px;
+  color: #ffc1c5;
+}
+
+.verdict {
+  padding: 18px;
+  border-radius: 12px;
+  font-size: 21px;
+  font-weight: 700;
+  text-align: center;
+  background: rgba(255,119,126,.12);
+  color: var(--red);
+  border: 1px solid rgba(255,119,126,.4);
+}
+
+.verdict.safe {
+  color: var(--green);
+  background: rgba(83,219,171,.1);
+  border-color: var(--green);
+}
+
+.verdict.warning {
+  color: var(--yellow);
+  background: rgba(255,207,117,.1);
+  border-color: var(--yellow);
+}
+
+button {
+  padding: 11px 18px;
+  background: var(--blue);
+  border: none;
+  border-radius: 9px;
+  font-weight: 700;
+  cursor: pointer;
+  color: #081225;
+}
+
+button:hover { opacity: .9; }
+
+.actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+ul {
+  padding-left: 20px;
+  line-height: 1.8;
+}
+
+footer {
+  text-align: center;
+  padding: 25px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+@media(max-width: 850px) {
+  .grid { grid-template-columns: 1fr; }
+  header { padding: 20px; }
+  .container { padding: 15px; }
+}
+
+
+/* =========================================
+   FACETIMEFRIEND — LARGE DEMO DISPLAY
+   ========================================= */
+
+body {
+    font-size: 20px;
+    line-height: 1.6;
+}
+
+/* Full-width dashboard */
+.container {
+    width: 98%;
+    max-width: none;
+    padding: 30px 24px;
+    margin: 0 auto;
+}
+
+/* Header */
+header {
+    padding: 25px 32px;
+}
+
+h1 {
+    font-size: 38px;
+    font-weight: 800;
+}
+
+.subtitle {
+    font-size: 18px;
+}
+
+/* Two equal columns */
+.grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 24px;
+    align-items: start;
+}
+
+/* Larger cards */
+.card {
+    padding: 30px;
+    border-radius: 18px;
+    margin-bottom: 24px;
+}
+
+/* Section titles */
+.card-title h2 {
+    font-size: 26px;
+    font-weight: 750;
+}
+
+.card-title {
+    margin-bottom: 24px;
+}
+
+/* Field labels */
+.label {
+    font-size: 17px;
+    margin-bottom: 6px;
+}
+
+/* Field values */
+.value {
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.field {
+    margin-bottom: 20px;
+}
+
+/* Keenable evidence */
+.source {
+    padding: 20px;
+    margin-bottom: 15px;
+}
+
+.source a {
+    font-size: 21px;
+    line-height: 1.4;
+}
+
+.source p {
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+.query {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+/* Security warnings */
+.flag {
+    padding: 18px;
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+/* Verdict */
+.verdict {
+    padding: 28px;
+    font-size: 34px;
+    font-weight: 800;
+}
+
+/* Reasons and recommendations */
+ul {
+    font-size: 20px;
+    line-height: 1.9;
+}
+
+li {
+    margin-bottom: 8px;
+}
+
+/* Status indicators */
+.pill {
+    padding: 12px 18px;
+    font-size: 17px;
+}
+
+/* Buttons */
+button {
+    padding: 16px 26px;
+    font-size: 19px;
+}
+
+/* Supporting descriptions */
+.muted {
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+footer {
+    font-size: 15px;
+    padding: 30px;
+}
+
+/* Keep layout usable on smaller screens */
+@media (max-width: 900px) {
+    .container {
+        width: 100%;
+        padding: 16px;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    .card-title h2 {
+        font-size: 22px;
+    }
+
+    .value {
+        font-size: 18px;
+    }
+
+    .verdict {
+        font-size: 26px;
+    }
+
+    ul {
+        font-size: 17px;
+    }
+}
+
+
+</style>
+</head>
+
+<body>
+
+<header>
+  <div>
+    <h1>🛡️ FacetimeFriend</h1>
+    <div class="subtitle">
+      AI-Powered Live Verification Dashboard
+    </div>
+  </div>
+  <div class="pill" id="connection">
+    ● Demo Mode
+  </div>
+</header>
+
+<div class="container">
+
+  <div class="status-bar">
+    <div class="pill" id="source-status">
+      Source: Demo
+    </div>
+    <div class="pill" id="check-status">
+      Status: Completed
+    </div>
+    <div class="pill" id="last-updated">
+      Last updated: —
+    </div>
+  </div>
+
+  <div class="grid">
+
+    <div>
+
+      <section class="card">
+        <div class="card-title">
+          <h2>📹 Chert Agent Input</h2>
+        </div>
+
+        <div class="field">
+          <div class="label">Category</div>
+          <div class="value" id="category">—</div>
+        </div>
+
+        <div class="field">
+          <div class="label">Item</div>
+          <div class="value" id="item">—</div>
+        </div>
+
+        <div class="field">
+          <div class="label">Claimed Company</div>
+          <div class="value" id="company">—</div>
+        </div>
+
+        <div class="field">
+          <div class="label">Suspicious URLs</div>
+          <div class="value url" id="urls">—</div>
+        </div>
+
+        <div class="field">
+          <div class="label">User Question</div>
+          <div class="value" id="question">—</div>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="card-title">
+          <h2>⚠️ Security Checks</h2>
+        </div>
+
+        <div id="flags"></div>
+      </section>
+
+      <section class="card">
+        <div class="card-title">
+          <h2>🧭 Recommended Actions</h2>
+        </div>
+        <ul id="actions"></ul>
+      </section>
+
+    </div>
+
+    <div>
+
+      <section class="card">
+        <div class="card-title">
+          <h2>🌐 Keenable Web Evidence</h2>
+        </div>
+
+        <div class="field">
+          <div class="label">Official Domain</div>
+          <div class="value" id="official-domain">—</div>
+        </div>
+
+        <div id="search-results"></div>
+      </section>
+
+      <section class="card">
+        <div class="card-title">
+          <h2>🛡️ Suggested Verdict</h2>
+        </div>
+
+        <div class="verdict" id="verdict">
+          Waiting for verification
+        </div>
+
+        <div style="margin-top:18px">
+          <h3>Reasons</h3>
+          <ul id="reasons"></ul>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="card-title">
+          <h2>⚙️ Dashboard Controls</h2>
+        </div>
+
+        <div class="actions">
+          <button onclick="showDemo()">
+            Load Demo
+          </button>
+
+          <button onclick="refreshLive()">
+            Refresh Live
+          </button>
+        </div>
+
+        <p class="muted" style="margin-top:15px">
+          The dashboard checks /latest every second.
+          If the backend is unavailable, demo data
+          remains available.
+        </p>
+      </section>
+
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  FacetimeFriend • Chert + Keenable + Python Rules
+</footer>
+
+<script>
+
+// Change this if FastAPI runs elsewhere.
+const API_URL = "http://127.0.0.1:8000/latest";
+
+// Fictional hackathon demo data.
+const demoData = {
+  source: "demo",
+  status: "completed",
+
+  args: {
+    category: "scam",
+    item: "Amazon job offer",
+    claimed_company: "Amazon",
+    urls: [
+      "https://amaz0n-careers.com/onboard"
+    ],
+    emails: [
+      "hr@amaz0n-careers.com"
+    ],
+    question: "Is this job offer legitimate?"
+  },
+
+  results: [
+    {
+      query: "Amazon official careers website",
+      title: "Amazon Jobs",
+      url: "https://www.amazon.jobs/",
+      snippet: "Official Amazon careers website."
+    },
+    {
+      query: "Amazon recruitment fraud",
+      title: "Amazon Recruitment Fraud Alert",
+      url: "https://amazon.jobs/content/en/how-we-hire/fraud-alert-india",
+      snippet: "Amazon warns applicants about recruitment scams and payment requests."
+    }
+  ],
+
+  verification: {
+    official_domain: "amazon.jobs",
+    suggested_verdict: "likely_suspicious",
+    rule_flags: [
+      "lookalike_domain",
+      "domain_mismatch",
+      "upfront_fee",
+      "asks_for_ssn"
+    ],
+    reasons: [
+      "The sender domain does not match Amazon's official careers website.",
+      "The message requests an upfront equipment fee."
+    ],
+    actions: [
+      "Do not click the suspicious link.",
+      "Do not pay or share personal information.",
+      "Apply through the official careers website."
+    ]
+  }
+};
+
+let mode = "demo";
+
+function setText(id, value) {
+  document.getElementById(id).textContent =
+    value ?? "—";
+}
+
+function clearElement(id) {
+  const el = document.getElementById(id);
+  el.replaceChildren();
+  return el;
+}
+
+function addListItems(id, values) {
+  const parent = clearElement(id);
+
+  for (const value of values || []) {
+    const li = document.createElement("li");
+    li.textContent = String(value);
+    parent.appendChild(li);
+  }
+}
+
+function renderSources(results) {
+  const parent = clearElement("search-results");
+
+  if (!results.length) {
+    parent.textContent = "No search evidence yet.";
+    return;
+  }
+
+  for (const result of results) {
+    const card = document.createElement("div");
+    card.className = "source";
+
+    const query = document.createElement("div");
+    query.className = "query";
+    query.textContent = "Search: " + (result.query || "—");
+
+    const title = document.createElement("div");
+    const link = document.createElement("a");
+
+    link.textContent = result.title || "View source";
+    const url = result.url || "";
+
+    try {
+      const parsed = new URL(url);
+      if (["https:", "http:"].includes(parsed.protocol)) {
+        link.href = parsed.href;
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+      }
+    } catch (_) {
+      // Invalid source URLs are not made clickable.
+    }
+
+    title.appendChild(link);
+
+    const snippet = document.createElement("p");
+    snippet.textContent = result.snippet || "";
+
+    card.append(query, title, snippet);
+    parent.appendChild(card);
+  }
+}
+
+function renderDashboard(data) {
+  const args = data.args || data.details || {};
+  const verification =
+    data.verification || data.result || data;
+
+  // Supports flat search results and grouped results.
+  let results = data.results || data.searches || [];
+
+  if (!Array.isArray(results)) results = [];
+
+  if (results.some(r => Array.isArray(r.results))) {
+    results = results.flatMap(group =>
+      (group.results || []).map(result => ({
+        ...result,
+        query: group.query
+      }))
+    );
+  }
+
+  setText("category", args.category);
+  setText("item", args.item);
+  setText("company", args.claimed_company);
+  setText("urls", (args.urls || []).join(", ") || "None");
+  setText("question", args.question);
+
+  setText(
+    "official-domain",
+    verification.official_domain || "Not confirmed"
+  );
+
+  renderSources(results);
+
+  const flags = clearElement("flags");
+  const ruleFlags = verification.rule_flags || [];
+
+  if (!ruleFlags.length) {
+    flags.textContent = "No rule flags reported.";
+  }
+
+  for (const flag of ruleFlags) {
+    const div = document.createElement("div");
+    div.className = "flag";
+    div.textContent = "⚠ " +
+      String(flag).replaceAll("_", " ");
+    flags.appendChild(div);
+  }
+
+  const verdict =
+    verification.suggested_verdict || "";
+
+  const verdictElement =
+    document.getElementById("verdict");
+
+  verdictElement.className = "verdict";
+
+  if (verdict === "likely_safe" ||
+      verdict === "checks_out") {
+    verdictElement.classList.add("safe");
+  } else if (
+    verdict === "needs_verification" ||
+    verdict === "mixed"
+  ) {
+    verdictElement.classList.add("warning");
+  }
+
+  verdictElement.textContent = verdict
+    ? verdict.replaceAll("_", " ").toUpperCase()
+    : "Waiting for verification";
+
+  addListItems("reasons", verification.reasons);
+  addListItems("actions", verification.actions);
+
+  setText("source-status", "Source: " + (data.source || "unknown"));
+  setText("check-status", "Status: " + (data.status || "unknown"));
+
+  setText(
+    "last-updated",
+    "Last updated: " + new Date().toLocaleTimeString()
+  );
+}
+
+function showDemo() {
+  mode = "demo";
+  setText("connection", "● Demo Mode");
+  renderDashboard(demoData);
+}
+
+async function refreshLive() {
+  mode = "live";
+
+  try {
+    const response = await fetch(API_URL, {
+      cache: "no-store"
+    });
+
+    if (!response.ok) {
+      throw new Error("HTTP " + response.status);
+    }
+
+    const data = await response.json();
+
+    // Backend must supply its real /latest state.
+    renderDashboard(data);
+
+    setText("connection", "● Backend Connected");
+  } catch (error) {
+    setText("connection", "● Backend Offline");
+    console.warn("Live dashboard:", error.message);
+  }
+}
+
+// Start in demo mode so the dashboard works
+// even before Person 2 finishes the backend.
+showDemo();
+
+// Poll only while live mode is selected.
+setInterval(() => {
+  if (mode === "live") {
+    refreshLive();
+  }
+}, 1000);
+
+</script>
+</body>
+</html>
