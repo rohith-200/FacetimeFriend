@@ -1,7 +1,5 @@
 fastapi
 uvicorn[standard]
-openai
-python-dotenv
-pillow
+pydantic>=2
+pytest
 httpx
-python-multipart
