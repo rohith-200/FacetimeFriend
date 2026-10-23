@@ -170,6 +170,44 @@ def first_sentence(text: str, limit: int = 140) -> str:
     return s if len(s) <= limit else s[: limit - 1].rstrip() + "…"
 
 
+# ---------------------------------------------------------------- counterfeit tips
+TIP_WORDS_RE = re.compile(
+    r"\b(?:batch|code|barcode|box|packaging|cellophane|wrap|cap|bottle|sprayer|atomi[sz]er|"
+    r"font|label|logo|serial|color|colour|liquid|smell|scent|seller|retailer|authori[sz]ed|"
+    r"receipt|weight|heavy|seal|check|compare|look)\b", re.I)
+BAD_TIP_RE = re.compile(r"https?://|www\.|click|subscribe|video|watch|cookie|sign up|\|", re.I)
+IMPERATIVE_RE = re.compile(
+    r"(?:always |never |be sure to )?"
+    r"(?:make sure|check|look|compare|verify|inspect|examine|confirm|match|scan|search|smell|spray|feel|"
+    r"avoid|buy|ensure|test|read|ask|contact|use)\b", re.I)
+DEFAULT_TIPS = [
+    "Check that the batch code on the box matches the one on the bottle",
+    "Compare the packaging, label and cap with photos on the brand's official site",
+]
+
+
+def _clean_text(text: str) -> str:
+    text = re.sub(r"\[([^\]]*)\]\([^)]*\)", r"\1", text or "")    # markdown links -> text
+    text = re.sub(r"[#*_`>]+", " ", text)                            # markdown symbols
+    return re.sub(r"\s+", " ", text).strip()
+
+
+def pick_tip(snippet: str) -> str | None:
+    """First complete, advice-like sentence from a snippet, or None."""
+    for s in re.split(r"(?<=[.!?])\s+|\n+", snippet or ""):
+        s = _clean_text(s).rstrip(".!? ")
+        if not (25 <= len(s) <= 140):
+            continue
+        if not s[0].isupper() or BAD_TIP_RE.search(s) or not TIP_WORDS_RE.search(s):
+            continue
+        if s.lower().startswith(("fake vs", "real vs", "how to", "is this", "how can")):
+            continue  # page titles, not advice
+        if not IMPERATIVE_RE.match(s):
+            continue  # "What to do" needs instructions, not descriptions
+        return s
+    return None
+
+
 # ---------------------------------------------------------------- shared pieces
 def _blob(r: dict) -> str:
     return f"{r.get('title', '')} {r.get('snippet', '')}".lower()
@@ -361,11 +399,19 @@ def _evaluate_product(args: dict, results: list[dict]) -> dict:
 
     tips = []
     for r in results:
-        if "counterfeit" in r.get("query", "").lower() and r.get("snippet"):
-            tips.append(first_sentence(r["snippet"]))
+        if "counterfeit" not in r.get("query", "").lower():
+            continue
+        tip = pick_tip(r.get("snippet", ""))
+        if tip and tip not in tips:
+            tips.append(tip)
             c.cite("How to spot a counterfeit", r.get("url", ""))
         if len(tips) == 2:
             break
+    for default in DEFAULT_TIPS:  # always end up with 2 clean, sayable tips
+        if len(tips) >= 2:
+            break
+        if default not in tips:
+            tips.append(default)
 
     if price_note == "suspiciously_cheap" or "recall_mentioned" in c.flags:
         verdict = "red_flags"

@@ -49,7 +49,7 @@ def build_queries(args: dict) -> list[str]:
             qs.append(f"{args['phones'][0]} scam")
         return qs[:3]
     if cat == "product":
-        return [f"{item} price", f"{item} counterfeit how to spot", f"{item} reviews"]
+        return [f"{item} price USD", f"{item} counterfeit how to spot", f"{item} reviews"]
     return [item]
 
 
