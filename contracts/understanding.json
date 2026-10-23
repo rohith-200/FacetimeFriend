@@ -1,0 +1,13 @@
+{
+  "category": "scam",
+  "item": "Job offer text claiming to be from Amazon",
+  "visible_details": {
+    "sender": "Amazon HR",
+    "emails": ["hr@amaz0n-careers.com"],
+    "urls": ["https://amaz0n-careers.com/onboard"],
+    "phones": [],
+    "label_text": "",
+    "price": "$150 equipment fee"
+  },
+  "user_intent": "is_it_legitimate"
+}

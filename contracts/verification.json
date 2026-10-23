@@ -1,0 +1,17 @@
+{
+  "searches": [
+    {
+      "query": "Amazon official careers site",
+      "results": [
+        {"title": "Amazon Jobs", "url": "https://www.amazon.jobs/", "snippet": "Official Amazon careers site."}
+      ]
+    }
+  ],
+  "official_domain": "amazon.jobs",
+  "rules": {
+    "domain_mismatch": true,
+    "lookalike": true,
+    "free_email": false,
+    "risky_requests": ["upfront fee", "SSN", "bank details"]
+  }
+}
