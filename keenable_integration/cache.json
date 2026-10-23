@@ -1,0 +1,73 @@
+{
+  "searches": [
+    {
+      "query": "Amazon official careers site",
+      "results": [
+        {
+          "title": "Amazon Careers: Impact the Future, Today",
+          "url": "https://amazon.jobs/en",
+          "snippet": "## Student opportunities\nAt Amazon, what we\u2019re building today defines tomorrow. Explore internships, apprenticeships, and full-time roles where you can think big, learn from others, and make an impact.\n## Hourly jobs\nFrom the warehouse floor to customer doorsteps, every role has an impact. Search open jobs and discover how you can help shape the future of everyday life.\n## AI careers\nFrom personalized shopping to intelligent robotics, our AI teams shape how customers live and work every day. Exp"
+        },
+        {
+          "title": "Amazon's global career site",
+          "url": "https://amazon.com/Careers-Homepage/b?ie=UTF8&node=239364011",
+          "snippet": "## Student opportunities\nAt Amazon, what we\u2019re building today defines tomorrow. Explore internships, apprenticeships, and full-time roles where you can think big, learn from others, and make an impact.\n## Hourly jobs\nFrom the warehouse floor to customer doorsteps, every role has an impact. Search open jobs and discover how you can help shape the future of everyday life.\n## AI careers\nFrom personalized shopping to intelligent robotics, our AI teams shape how customers live and work every day. Exp"
+        },
+        {
+          "title": "Amazon's global career site",
+          "url": "https://amazon.jobs/en?ref_=footer_gw_m_b_careers",
+          "snippet": "## Student opportunities\nAt Amazon, what we\u2019re building today defines tomorrow. Explore internships, apprenticeships, and full-time roles where you can think big, learn from others, and make an impact.\n## Hourly jobs\nFrom the warehouse floor to customer doorsteps, every role has an impact. Search open jobs and discover how you can help shape the future of everyday life.\n## AI careers\nFrom personalized shopping to intelligent robotics, our AI teams shape how customers live and work every day. Exp"
+        },
+        {
+          "title": "Amazon Jobs: Competitive Pay, Paid Time Off & Benefits",
+          "url": "http://amazon.com/Apply",
+          "snippet": "# Stack your cash.\nPick your shifts.\nSkip the interview.\nWant competitive pay, a variety of shift options, and a hassle-free hiring process? They're all yours. And that's just the beginning.\n\n### Benefits\nMany roles come with Health benefits, paid time off, holiday overtime, employee discounts, and more.\n\n### Our Culture\nEnjoy a safe, inclusive work environment with helpful managers and multilingual support.\n## Associate Spotlight\n### Meet Paul, a former E-3 in the Navy and current Process Assis"
+        },
+        {
+          "title": "Featured Warehouse Jobs @ Amazon [Great Pay & Hiring Immediately!]",
+          "url": "https://amazon.com/apply",
+          "snippet": "### Your job offer is waiting for you.\nApply quickly and easily. You could get an offer today.\n\n### Work-Life Balance\nThere are a variety of shifts to choose from \u2014 morning, day, or night \u2014 that work around your schedule, at a location that\u2019s close to home.\n\n### Benefits and Perks\nEarn competitive pay from day one, with access to paid time off and medical support, plus opportunities for comprehensive benefits as you grow with us.\n![ILLUSTRATION \u2013 Benefits and Perks](https://m.media-amazon.com/im"
+        }
+      ]
+    },
+    {
+      "query": "Amazon recruitment scam equipment fee",
+      "results": [
+        {
+          "title": "Real Examples + How to Spot It",
+          "url": "https://checkmyjoboffer.com/whatsapp-amazon-job-scam",
+          "snippet": "**Amazon does not recruit via WhatsApp, Telegram, or any unsolicited message. If an \"Amazon HR\" contact asks for any fee, requests crypto payment, or will only interview you via text, it is a confirmed scam. Verify every Amazon role directly at amazon.jobs.**\n### Red Flags\n- \"Amazon HR\" / \"Amazon Talent\" message arrives without you applying anywhere\n- Interview is \"WhatsApp only\" or \"text interview only\" \u2014 never a real video call\n- Any fee is required (registration, background check, training ki"
+        },
+        {
+          "title": "Amazon Work From Home Jobs: Real Ones and the Fake Ones",
+          "url": "https://themoneypig.com/amazon-work-from-home-jobs",
+          "snippet": "Payment to start. An equipment fee, a training fee, a background-check fee, a \"refundable\" deposit for a laptop that will be sent. No legitimate employer charges a candidate to be hired, and this is the most common version.\nThe overpayment cheque. You are \"hired\", sent a cheque or transfer to buy equipment, told to forward part of it to a supplier. The original payment reverses days later and the money you forwarded is gone. Handling funds this way can also make you a participant in money launde"
+        },
+        {
+          "title": "Is this an Amazon recruiting scam?",
+          "url": "https://macmyths.com/is-this-an-amazon-recruiting-scam",
+          "snippet": "The clearest warning sign is any request to pay money upfront. Scammers may claim you need to buy a laptop, software, training materials, background-check services, work-from-home equipment, or gift cards before starting. Some send a fake check and ask you to deposit it, buy equipment from a specific \u201cvendor,\u201d and return leftover funds. If the check later bounces, your bank may hold you responsible for the full amount. Amazon does not require candidates to pay recruiters, buy gift cards, send cr"
+        },
+        {
+          "title": "Is this Amazon work-from-home job real? | Real Job Check",
+          "url": "https://realjobcheck.com/answers/is-this-amazon-work-from-home-job-real",
+          "snippet": "Amazon is a real company, and it does hire for remote roles, which is exactly why scammers impersonate it so often. A message about an Amazon work-from-home or data-entry job is probably fake if it asks you to pay for equipment, asks for bank or Social Security details up front, or moves you to WhatsApp or Telegram. Amazon's real openings are on its own jobs site, never in an unsolicited text.\n\n**Walk away if any of these is true:**\n- It asks you to **pay** for equipment, training, or a starter "
+        },
+        {
+          "title": "Is This Amazon Flex Recruiter Real? 2026 Scam Guide",
+          "url": "https://bynudge.com/is/amazon-flex-scam",
+          "snippet": "scams.** Norton's 2026 research found that **30% of all job impersonation scams target Amazon** \u2014 fake Amazon Flex driver recruits, fake \"Amazon online assessor\" jobs, fake warehouse hiring. Real Amazon Flex onboards through the Amazon Flex app only, not via text, WhatsApp, or third-party links. Amazon's official policy: **\"Amazon does not charge for training materials, onboarding, background checks, or equipment.\"**\n\nranges. Fakes\n\n- **Money flow:** Real employers pay YOU \u2014 never the reverse. F"
+        }
+      ]
+    }
+  ],
+  "official_domain": "amazon.jobs",
+  "rules": {
+    "domain_mismatch": true,
+    "lookalike": true,
+    "free_email": false,
+    "risky_requests": [
+      "upfront fee"
+    ]
+  }
+}
