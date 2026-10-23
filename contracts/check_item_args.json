@@ -1,0 +1,11 @@
+{
+  "category": "scam",
+  "item": "Job offer text from 'Amazon HR'",
+  "claimed_company": "Amazon",
+  "urls": ["https://amaz0n-careers.com/onboard"],
+  "emails": ["hr@amaz0n-careers.com"],
+  "phones": [],
+  "price_seen": null,
+  "red_flags_seen": ["$150 equipment fee", "asks for SSN", "24-hour deadline"],
+  "question": "Is this job offer legit?"
+}
